@@ -14,49 +14,43 @@ class App extends React.Component {
     this.state = {
 
       hornedData: jsonSData,
-      SelectedBeastContentFromState: '',
-      SelectedBeastContentFromState2: '',
-      SelectedBeastContentFromState3: '',
+      modelHedar: '',
+      modelImag: '',
+      foterModel: '',
       show: false
 
 
 
     }
   }
-  // modalShowFunction=()=>{
+  
 
-  // }
+  
   handleClose = () => {
     this.setState({ show: false })
   }
 
-  changingStateDataFunction = (selectedData, selectedData2, selectedData3) => {
+  changingStateDataFunction = (selectedTitel, selectedImg, selectedDesc) => {
 
-    //  let newArr= jsonSDatas.find(element=> element.horns===2)
 
     this.setState(
       {
-        SelectedBeastContentFromState: selectedData,
-        SelectedBeastContentFromState2: selectedData2,
-        SelectedBeastContentFromState3: selectedData3,
+        modelHedar: selectedTitel,
+        modelImag: selectedImg,
+        foterModel: selectedDesc,
         show: true
       }
     )
-    // this.modalShowFunction()
 
 
   }
-
-
-
-
   render() {
     return (
       <>
         <Header />
-        <Main hornedDataMain={this.state.hornedData} functionProp={this.changingStateDataFunction} />
+        <Main hornedDataMain={this.state.hornedData} getDataFromApp={this.changingStateDataFunction} />
 
-        <SelectedBeast SelectedBeastContent={this.state.SelectedBeastContentFromState} SelectedBeastContent2={this.state.SelectedBeastContentFromState2} SelectedBeastContent3={this.state.SelectedBeastContentFromState3} modalShowFunction={this.state.show} handleClose={this.handleClose} > </SelectedBeast>
+        <SelectedBeast modelHedar={this.state.modelHedar} modelImag={this.state.modelImag} foterModel={this.state.foterModel} modalShowFunction={this.state.show} handleClose={this.handleClose} > </SelectedBeast>
         <Footer />
       </>
 
