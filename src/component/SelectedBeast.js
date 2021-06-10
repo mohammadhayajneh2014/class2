@@ -9,18 +9,19 @@ class SelectedBeast extends React.Component {
     return (
       <>
 
-        <Modal show={this.props.modalShowFunction}>
+        <Modal show={this.props.modalShowFunction} onHide={this.props.handleClose}>
 
-          <Modal.Header>
-            {this.props.SelectedBeastContent}
+          <Modal.Header  show={this.props.modalShowFunction} 
+           closeButton onHide={this.props.handleClose}>
+            {this.props.modelHedar}
           </Modal.Header>
 
           <Modal.Body>
-            <img src={this.props.SelectedBeastContent2} alt='' style={{ width: "450px", height: "400px" }}></img>
+            <img src={this.props.modelImag} alt='' style={{ width: "450px", height: "400px" }}></img>
           </Modal.Body>
 
           <Modal.Footer>
-            {this.props.SelectedBeastContent3}
+            {this.props.foterModel}
 
             <Button variant="secondary" onClick={this.props.handleClose}>
               Close

@@ -12,13 +12,13 @@ class Main extends React.Component {
 
     this.state = {
 
-      filteredDataJSON: datajason,
+      DataJason: datajason,
     }
 
   }
 
-  prop1Function = (selectedData, selectedData2, selectedData3) => {
-    this.props.functionProp(selectedData, selectedData2, selectedData3);
+  gittingData = (selectedTitel, selectedImg, selectedDesc) => {
+    this.props.getDataFromApp(selectedTitel, selectedImg, selectedDesc);
 
 
   }
@@ -38,7 +38,7 @@ class Main extends React.Component {
       }
     });
     this.setState({
-      filteredDataJSON: newArr,
+      DataJason: newArr,
     });
    
     console.log('newArr', newArr);
@@ -65,7 +65,7 @@ class Main extends React.Component {
 
         <CardColumns>
           {
-            this.state.filteredDataJSON.map(item => {
+            this.state.DataJason.map(item => {
               return (
                 <>
 
@@ -73,7 +73,7 @@ class Main extends React.Component {
                     title={item.title}
                     imgSrc={item.image_url}
                     description={item.description}
-                    prop2Function={() => this.prop1Function(item.title, item.image_url, item.description)} />
+                    dataFromMainToModwal={() => this.gittingData(item.title, item.image_url, item.description)} />
 
 
 
